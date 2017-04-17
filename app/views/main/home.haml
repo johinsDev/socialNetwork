@@ -1,2 +1,5 @@
 %h1 Bienvenido a la pagina
-%p Estamos usando HAMl
+-if user_signed_in?
+  =link_to "Cerrar Sesion", destroy_user_session_path, method: :delete
+-else
+  =link_to "Iniciar sesion", new_user_session_path
