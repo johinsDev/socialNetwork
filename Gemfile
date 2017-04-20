@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'flexbox_rb'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
