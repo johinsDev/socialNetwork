@@ -14,14 +14,20 @@ RSpec.describe User, type: :model do
 
   describe "#validate_username_regex" do
 
+    let(:user){FactoryGirl.build(:user)}
+
     it "should not allow username with numbers at the beginning" do
-      user = User.new(email: "johinsdev@qideas.com", password: "123456" , username: "9asdas")
+
+      user.username = "8asdad"
       expect(user.valid?).to be_falsy
+
     end
 
     it "should not contain special characters" do
-      user = User.new(email: "johinsdev@qideas.com", password: "123456" , username: "9asdas*")
+
+      user.username = "8asdad*"
       expect(user.valid?).to be_falsy
+
     end
 
   end
