@@ -34,6 +34,7 @@ gem 'omniauth-facebook'
 gem 'flexbox_rb'
 gem 'jquery-turbolinks'
 gem 'mysql2'
+gem 'annotate'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

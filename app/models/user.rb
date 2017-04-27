@@ -16,6 +16,7 @@ class User < ApplicationRecord
       if auth[:info]
         user.email = auth[:info][:email]
         user.name = auth[:info][:name]
+        user.username = auth[:info][:username]
       end
       user.password = Devise.friendly_token[0,20]
     end

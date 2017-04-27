@@ -2,7 +2,6 @@ class Users::OmniauthCallbacksController < ApplicationController
 
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    raise request
     if @user.persisted?
       @user.remember_me = true
       sign_in_and_redirect @user, :event => :authentication
@@ -12,7 +11,6 @@ class Users::OmniauthCallbacksController < ApplicationController
     session["devise.auth"] = request.env["omniauth.auth"]
 
     render :edit
-
   end
 
   def custom_sign_up
