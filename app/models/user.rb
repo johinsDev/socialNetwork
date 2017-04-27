@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :omniauth_providers=> [:facebook]
 
   validates :username, presence: true, uniqueness: true, length: {in: 3..12 }
+  validate :validate_username_regex
 
   has_many :posts
 
@@ -19,5 +20,13 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  private
+    def validate_username_regex
+      unless username =~ /\A[a-zA-Z]*[a-zA-Z][a-zA-Z0-9_]*\z/
+        errors.add(:username,"El username debe iniciar con una letra")
+        errors.add(:username,"El username sólo puede contener _,letras y números")
+      end
+    end
 
 end
